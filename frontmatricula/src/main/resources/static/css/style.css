@@ -1,0 +1,143 @@
+/* === Estilos base === */
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background-color: #f9fafb;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+/* === Cabecera === */
+.header {
+  background: linear-gradient(90deg, #0d6efd, #0078d7);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* === Contenedor principal === */
+.container {
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* === Tabla estilizada === */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.styled-table th, .styled-table td {
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.styled-table thead {
+  background: #e9ecef;
+  font-weight: 600;
+}
+
+.styled-table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.table-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* === Botones === */
+.btn-primary, .btn-secondary, .btn-danger {
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 500;
+  display: inline-block;
+  transition: background 0.2s ease;
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0b5ed7;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #5c636a;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #bb2d3b;
+}
+
+.full-width {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* === Formulario === */
+.form-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input, select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+label {
+  font-weight: 500;
+  color: #333;
+}
+
+.empty {
+  text-align: center;
+  color: #666;
+  padding: 1rem;
+}
+
+/* === Responsive === */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .styled-table th, .styled-table td {
+    font-size: 0.9rem;
+  }
+}

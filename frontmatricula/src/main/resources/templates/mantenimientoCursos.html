@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Cursos</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header class="header">
+    <h1>📚 Gestión de Cursos</h1>
+    <a class="btn-primary" th:href="@{/cursos/nuevo}">➕ Nuevo Curso</a>
+</header>
+
+<main class="container">
+    <table class="styled-table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Fecha Inicio</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="curso : ${listaCursos}">
+            <td th:text="${curso.idCurso}"></td>
+            <td th:text="${curso.nombreCurso}"></td>
+            <td th:text="${#dates.format(curso.fechaInicio, 'yyyy-MM-dd')}"></td>
+            <td class="table-actions">
+                <a class="btn-secondary" th:href="@{'/cursos/editar/' + ${curso.idCurso}}">✏️ Editar</a>
+                <a class="btn-danger" th:href="@{'/cursos/eliminar/' + ${curso.idCurso}}"
+                   onclick="return confirm('¿Deseas eliminar este curso?')">🗑️ Eliminar</a>
+            </td>
+        </tr>
+
+        <tr th:if="${#lists.isEmpty(listaCursos)}">
+            <td colspan="4" class="empty">No hay cursos registrados.</td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+
+</body>
+</html>

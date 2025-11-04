@@ -9,9 +9,14 @@ import edu.cibertec.repository.CursoRepository;
 import edu.cibertec.service.CursoService;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * 🎯 Implementación del servicio de cursos.
+ * Intermedia entre el controlador y el repositorio REST.
+ */
 @Service
 @RequiredArgsConstructor
 public class CursoServiceImpl implements CursoService {
+
     private final CursoRepository cursoRepository;
 
     @Override
@@ -35,8 +40,7 @@ public class CursoServiceImpl implements CursoService {
     }
 
     @Override
-    public CursoEntity eliminarCurso(Integer idCurso) {
-        return cursoRepository.eliminarCurso(idCurso);
+    public void eliminarCurso(Integer idCurso) {
+        cursoRepository.eliminarCurso(idCurso);
     }
-
 }

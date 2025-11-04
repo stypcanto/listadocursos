@@ -46,13 +46,22 @@ public class CursoController {
     }
 
     // =====================================================
-    // 🔹 Guardar curso
+    // 🔹 Guardar curso (nuevo o edición)
     // =====================================================
     @PostMapping("/guardar")
     public String guardarCurso(@ModelAttribute("curso") CursoEntity curso) {
-        cursoService.registrarCurso(curso);
+        if (curso.getIdCurso() != null && curso.getIdCurso() > 0) {
+            // Si tiene ID → actualizar
+            cursoService.actualizarCurso(curso);
+            System.out.println("📝 Curso actualizado: " + curso.getNombreCurso());
+        } else {
+            // Si no tiene ID → registrar
+            cursoService.registrarCurso(curso);
+            System.out.println("✅ Nuevo curso registrado: " + curso.getNombreCurso());
+        }
         return "redirect:/cursos";
     }
+
 
     // =====================================================
     // 🔹 Editar curso

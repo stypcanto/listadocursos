@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevo Curso | Gestión de Cursos</title>
+    <title th:text="${titulo != null ? titulo : 'Nuevo Curso | Gestión de Cursos'}"></title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 
 <header class="header">
-    <h1>🆕 Registrar Nuevo Curso</h1>
+    <h1 th:text="${titulo != null ? titulo : '🆕 Registrar Nuevo Curso'}"></h1>
     <a class="btn-secondary" th:href="@{/cursos}">⬅️ Volver</a>
 </header>
 
 <main class="container">
     <form th:action="@{/cursos/guardar}" th:object="${curso}" method="post" class="form-card">
+
+        <!-- ⚠️ Campo oculto que soluciona el problema -->
+        <input type="hidden" th:field="*{idCurso}">
 
         <label for="nombreCurso">Nombre del Curso</label>
         <input type="text" id="nombreCurso" th:field="*{nombreCurso}" required
